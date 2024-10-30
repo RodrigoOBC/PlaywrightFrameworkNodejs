@@ -27,8 +27,6 @@ class HomePage {
         return products;
      }
 
-
-    // Add more methods to interact with the home page as needed
 }
 
 module.exports = HomePage;
