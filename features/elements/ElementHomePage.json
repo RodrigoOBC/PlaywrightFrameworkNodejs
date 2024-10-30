@@ -1,0 +1,8 @@
+{
+  "__comment": "This is a fixture file for home page",
+  "url": "http://www.automationpractice.pl/index.php",
+  "titlePage": "My Shop",
+  "SearchField": "[id=\"search_query_top\"]",
+  "SearchButton": "[name=\"submit_search\"]",
+  "ProductsTarget": ["Faded Short Sleeve T-shirts", "Printed Dress"]
+}
