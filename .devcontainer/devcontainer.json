@@ -1,0 +1,18 @@
+{
+    "name": "PlaywrightFrameworkNode",
+    "image": "mcr.microsoft.com/playwright:latest",
+    "preCreateCommand": "hwclock --hctosys || true",
+    "postCreateCommand": "apt-get update && apt-get install -y software-properties-common && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" && apt-get install -y docker-ce-cli && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && export NVM_DIR=\"$([ -z \"${XDG_CONFIG_HOME-}\" ] && printf %s \"${HOME}/.nvm\" || printf %s \"${XDG_CONFIG_HOME}/nvm\")\" && [ -s \"$NVM_DIR/nvm.sh\" ] && . \"$NVM_DIR/nvm.sh\" && nvm install 20.11.1 ",
+    "postStartCommand": "npm install -g npm@latest && npm install && npx playwright install",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            }
+        }
+    },
+    "runArgs": [
+        "-v",
+        "/var/run/docker.sock:/var/run/docker.sock"
+    ]
+}
