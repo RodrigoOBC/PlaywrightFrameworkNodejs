@@ -17,7 +17,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: install deps playwright
-        run: npx playwright install --with-deps
+        run: |
+          sudo npx playwright install-deps
+          npx playwright install
       - name: Run your tests
         run: npx playwright test homePage.spec.js
 
