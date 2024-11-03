@@ -15,7 +15,7 @@ test.beforeEach(async ({ browser }) => {
 
 test('should open the product page', async ({  }) => {
     await homePage.clickProduct(productsTarget);
-    
+    await expect(await page.url()).toBe('http://www.automationpractice.pl/index.php?id_product=4&controller=product&search_query=Printed+Dress&results=5');
 
 })
 
