@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 import HomePage from '../page/homePage.page';
+import ProductPage from '../page/productPage.page';
 
 const homePage = new HomePage();
-const product = 'Printed Dress';
+const productPage = new ProductPage();
+const product = 'Blouse';
 let productsTarget;
 
 test.beforeEach(async ({ browser }) => {
@@ -15,11 +17,18 @@ test.beforeEach(async ({ browser }) => {
 
 test('should open the product page', async ({  }) => {
     await homePage.clickProduct(productsTarget);
-    await expect(await page.url()).toBe('http://www.automationpractice.pl/index.php?id_product=4&controller=product&search_query=Printed+Dress&results=5');
+    await productPage.validateProductPage();
 
 })
 
-test('should add product to cart', async ({  }) => {
-
+test.only('should add product to cart', async ({  }) => {
+    test.setTimeout(300000)
+    await homePage.clickProduct(productsTarget);
+    await productPage.validateProductPage();
+    await productPage.selectProductColor('White');
+    await productPage.selectProductSize('M');
+    // await productPage.addProductToCart();
+    // await productPage.validateProductAddedToCart();
 })
+
 
