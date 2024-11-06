@@ -3,15 +3,15 @@ const objectPage = require('../elements/ElementProductPage.json');
 
 class ProductPage {
   constructor() {
-    this.objects =  objectPage
+    this.objectsProductPage =  objectPage
   }
 
     async getProductName() {
-        return await page.locator(this.objects.producName);
+        return await page.locator(this.objectsProductPage.producName);
     }
 
     async getProductPrice() {
-        return await page.locator(this.objects.productPrice);
+        return await page.locator(this.objectsProductPage.productPrice);
     }
 
     async getProductSize() {
@@ -19,12 +19,21 @@ class ProductPage {
     }
 
     async getProductColor() {
-        return await page.locator(this.objects.colorOption);
+        return await page.locator(this.objectsProductPage.colorOption);
+    }
+
+    async getAddToCartButton() {
+        return await page.getByRole('button', { name: 'Add to cart' });
+    }
+
+    async getNumberProduct(){
+        return await page.locator(this.objectsProductPage.countProduct)
     }
 
     async selectProductSize(size){
         await page.locator('select').selectOption({ label: size });
     }
+
 
     async selectProductColor(color){
         let colorOption = await this.getProductColor()
@@ -33,8 +42,14 @@ class ProductPage {
    
     }
 
+    async setNumberOfProduct(numberOfProduct){
+        let numberOfProductObject = await this.getNumberProduct()
+        await numberOfProductObject.fill(numberOfProduct)
+    }
+
     async addProductToCart() {
-        await await page.locator(this.objects.addToCartButton).click();
+        let addToCartButton = await this.getAddToCartButton();
+        await addToCartButton.click();
     }
 
     async validateProductPage(){
@@ -48,6 +63,12 @@ class ProductPage {
       await expect(productSize).toBeVisible();
       await expect(productColor).toBeVisible();
 
+    }
+
+    async validateProductAddedToCart(){
+        let successMessage = await page.getByText(this.objectsProductPage.sucessMessage);
+        await expect(successMessage).toBeVisible();
+        await expect(successMessage).toHaveText(this.objectsProductPage.sucessMessage);
     }
 }
 
