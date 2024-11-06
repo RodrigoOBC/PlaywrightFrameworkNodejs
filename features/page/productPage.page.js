@@ -52,14 +52,14 @@ class ProductPage {
         await addToCartButton.click();
     }
 
-    async validateProductPage(){
+    async validateProductPage(producName, productPriceExpected){
       let productName = await this.getProductName();
       let productPrice = await this.getProductPrice();
       let productSize = await this.getProductSize();
       let productColor = await this.getProductColor();
 
-      await expect(productName).toHaveText('Blouse');
-      await expect(productPrice).toHaveText('$27');
+      await expect(productName).toHaveText(producName);
+      await expect(productPrice).toHaveText(productPriceExpected);
       await expect(productSize).toBeVisible();
       await expect(productColor).toBeVisible();
 
@@ -69,6 +69,11 @@ class ProductPage {
         let successMessage = await page.getByText(this.objectsProductPage.sucessMessage);
         await expect(successMessage).toBeVisible();
         await expect(successMessage).toHaveText(this.objectsProductPage.sucessMessage);
+    }
+
+    async validateProductPageWhenDontHaveProduct(){
+        let addToCartButton = await this.getAddToCartButton();
+        await expect(await addToCartButton.isVisible()).toBe(false);
     }
 }
 
