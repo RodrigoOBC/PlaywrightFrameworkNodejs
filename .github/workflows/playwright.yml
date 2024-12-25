@@ -7,7 +7,7 @@ jobs:
     name: 'Playwright Framework Node.js CI'
     runs-on: ubuntu-latest
     container:
-      image: "mcr.microsoft.com/playwright:v1.48.0-focal"
+      image: "mcr.microsoft.com/playwright:v1.49.1-jammy"
       options: --user 1001
     steps:
       - uses: actions/checkout@v2
