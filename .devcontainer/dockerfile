@@ -1,5 +1,5 @@
 # Use a imagem base do Playwright
-FROM mcr.microsoft.com/playwright:v1.43.0-focal
+FROM mcr.microsoft.com/playwright:v1.49.1-jammy
 
 
 RUN hwclock --hctosys || true
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y software-properties-common \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash \
     && export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" \
     && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" \
-    && nvm install 20.11.1
+    && nvm install 22.12.0
 
 
 RUN npm install -g npm@latest
@@ -28,7 +28,8 @@ WORKDIR /workspace
 
 
 COPY package.json package-lock.json ./
-RUN npm ci && npx playwright install
+RUN npm install 
+RUN npx playwright install
 
 
 EXPOSE 3001
