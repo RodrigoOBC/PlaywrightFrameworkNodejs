@@ -43,7 +43,7 @@ for (let countProduct of countProducts) {
     })
 }
 
-test.only('validate the product page when don\'t have product', async ({ }) => {
+test('validate the product page when don\'t have product', async ({ }) => {
     let productsOutStorage = await homePage.SearchProduct('Faded Short Sleeve T-shirts');
     await homePage.clickProduct(productsOutStorage);
     await productPage.validateProductPageWhenDontHaveProduct();

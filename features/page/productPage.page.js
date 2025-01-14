@@ -58,7 +58,7 @@ class ProductPage {
       let productSize = await this.getProductSize();
       let productColor = await this.getProductColor();
 
-      await expect(productName).toHaveText(producName);
+      await expect(productName[0]).toHaveText(producName);
       await expect(productPrice).toHaveText(productPriceExpected);
       await expect(productSize).toBeVisible();
       await expect(productColor).toBeVisible();
