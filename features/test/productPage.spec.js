@@ -16,15 +16,17 @@ test.beforeEach(async ({ browser }) => {
 });
 
 
-test('should open the product page', async ({ }) => {
+test('should open the product page', async () => {
+    let producName = await productsTarget[2].innerText()
     await homePage.clickProduct(productsTarget);
-    await productPage.validateProductPage(productsTarget,'$27');
+    await productPage.validateProductPage(producName,'$27');
 
 })
 
-test('should add product to cart', async ({ }) => {
+test('should add product to cart', async () => {
+    let producName = await productsTarget[2].innerText()
     await homePage.clickProduct(productsTarget);
-    await productPage.validateProductPage(productsTarget,'$27');
+    await productPage.validateProductPage(producName,'$27');
     await productPage.selectProductColor('White');
     await productPage.selectProductSize('M');
     await productPage.addProductToCart();
@@ -32,9 +34,10 @@ test('should add product to cart', async ({ }) => {
 })
 
 for (let countProduct of countProducts) {
-    test(`Add more than ${countProduct} of the same product to the cart `, async ({ }) => {
+    test(`Add more than ${countProduct} of the same product to the cart `, async () => {
+    let producName = await productsTarget[2].innerText()
         await homePage.clickProduct(productsTarget);
-        await productPage.validateProductPage(productsTarget,'$27');
+        await productPage.validateProductPage(producName,'$27');
         await productPage.selectProductColor('White');
         await productPage.selectProductSize('M');
         await productPage.setNumberOfProduct(countProduct)
@@ -43,7 +46,7 @@ for (let countProduct of countProducts) {
     })
 }
 
-test('validate the product page when don\'t have product', async ({ }) => {
+test('validate the product page when don\'t have product', async () => {
     let productsOutStorage = await homePage.SearchProduct('Faded Short Sleeve T-shirts');
     await homePage.clickProduct(productsOutStorage);
     await productPage.validateProductPageWhenDontHaveProduct();
