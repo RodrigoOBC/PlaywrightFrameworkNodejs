@@ -9,7 +9,7 @@
   "author": "CabralQA",
   "license": "ISC",
   "dependencies": {
-    "@playwright/test": "^1.48.2",
-    "playwright": "^1.48.2"
+    "@playwright/test": "^1.49.1",
+    "playwright": "^1.49.1"
   }
 }

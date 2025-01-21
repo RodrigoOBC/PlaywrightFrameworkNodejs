@@ -1,0 +1,13 @@
+{
+    "__comment": "This is a fixture file for product page",
+    "producName": "[itemprop=\"name\"]",
+    "productPrice": "[itemprop=\"price\"]",
+    "productDescription": "[itemprop=\"description\"]",
+    "productImage": "[itemprop=\"image\"]",
+    "addCartButton": "[data-test=\"add-to-cart\"]",
+    "colorOption": "[id=\"color_to_pick_list\"]",
+    "countProduct": "[id=\"quantity_wanted\"]",
+    "sucessMessage": "Product successfully added to your shopping cart"
+
+    
+}

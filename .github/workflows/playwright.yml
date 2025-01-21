@@ -7,7 +7,7 @@ jobs:
     name: 'Playwright Framework Node.js CI'
     runs-on: ubuntu-latest
     container:
-      image: "mcr.microsoft.com/playwright:v1.48.0-focal"
+      image: "mcr.microsoft.com/playwright:v1.49.1-jammy"
       options: --user 1001
     steps:
       - uses: actions/checkout@v2
@@ -16,5 +16,7 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm ci
-      - name: Run your tests
+      - name: Run homePage tests
         run: npx playwright test homePage.spec.js
+      - name: Run ProductPage tests
+        run: npx playwright test productPage.spec.js

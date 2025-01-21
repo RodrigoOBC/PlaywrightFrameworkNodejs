@@ -7,26 +7,34 @@ class HomePage {
     }
 
     async navigateHomePage() {
-        await page.goto('/');
+        await page.goto('/')
     }
 
     async getSearchBox() {
-        return await page.locator(this.objects.SearchField);
+        return await page.locator(this.objects.SearchField)
     }
 
     async getSearchButton() {
-        return await page.locator(this.objects.SearchButton);
+        return await page.locator(this.objects.SearchButton)
+    }
+
+    async getProductTarget(product) {
+        return await page.getByRole('link', { name: product }).all()
     }
 
     async SearchProduct(product){
-        const searchBox = await this.getSearchBox();
-        const searchButton = await this.getSearchButton();
-        await searchBox.fill(product);
-        await searchButton.click();
-        let products = await page.getByRole('link', { name: 'Printed Dress' }).all();
+        const searchBox = await this.getSearchBox()
+        const searchButton = await this.getSearchButton()
+        await searchBox.fill(product)
+        await searchButton.click()
+        let products = await this.getProductTarget(product)
         return products;
      }
 
+    async clickProduct(product){    
+        await product[2].click()
+    }
+
 }
 
-module.exports = HomePage;
+module.exports = HomePage
