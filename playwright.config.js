@@ -1,3 +1,4 @@
+// Developed with care by RodrigoOBC.
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
