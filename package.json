@@ -9,6 +9,7 @@
   "author": "RodrigoOBC",
   "license": "ISC",
   "dependencies": {
+    "@estruyf/github-actions-reporter": "^1.10.0",
     "@playwright/test": "^1.49.1",
     "playwright": "^1.49.1"
   }
