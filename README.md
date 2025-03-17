@@ -10,6 +10,15 @@ Make sure you have Docker and Docker Compose installed on your system.
 
 ### Configuration Steps:
 
+Run the command in your root directory:
+
+``` bash
+. setup.sh
+
+```
+
+OR
+
 1- Enter the .devcontainer directory:
 
 ``` bash
