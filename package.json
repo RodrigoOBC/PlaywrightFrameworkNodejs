@@ -9,8 +9,8 @@
   "author": "RodrigoOBC",
   "license": "ISC",
   "dependencies": {
-    "@playwright/test": "^1.49.1",
+    "@playwright/test": "^1.51.0",
     "ortoni-report": "^2.0.9",
-    "playwright": "^1.49.1"
+    "playwright": "^1.51.0"
   }
 }
