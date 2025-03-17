@@ -49,7 +49,7 @@ npx playwright test
 3 - Generate and view reports (optional): After running the tests, you can generate and open the reports:
 
 ``` bash
-npx playwright show-report
+npx ortoni-report show-report --dir .temp/otoni-report --file index.html --port 3003
 ```
 
 ## 🛠 Project Structure

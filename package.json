@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@playwright/test": "^1.49.1",
+    "ortoni-report": "^2.0.9",
     "playwright": "^1.49.1"
   }
 }
